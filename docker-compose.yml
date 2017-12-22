@@ -1,11 +1,13 @@
 version: '3'
 services:
-  mongo:
+  backend:
+    build: ./backend/
+    ports:
+      - 3003
+  mongodb:
     image: mongo
     volumes:
       - /tmp/datadir:/data/db
-    ports:
-      - 27017:27017
 networks:
   default:
     driver: bridge
